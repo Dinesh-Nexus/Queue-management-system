@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triage-AI | Hospital Triage Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PAGE 1: LOGIN -->
+  <div class="page auth-page active" id="page-login">
+    <div class="auth-card">
+      <div class="logo-block">
+        <div class="logo-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 8C14 8 10 8 10 14C10 20 10 24 10 24C10 32 16.5 37 24 37C31.5 37 38 32 38 24" stroke="#1E88E5" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M14 8L16 5" stroke="#1E88E5" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M38 24C38 24 40 24 40 22C40 20 40 16 40 14C40 10 38 8 34 8" stroke="#1E88E5" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M34 8L32 5" stroke="#1E88E5" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="16" cy="5" r="2" fill="#1565C0"/>
+            <circle cx="32" cy="5" r="2" fill="#1565C0"/>
+            <circle cx="38" cy="27" r="5" fill="#1E88E5" stroke="#1565C0" stroke-width="1.5"/>
+            <path d="M38 24.5V29.5M35.5 27H40.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="logo-name">Triage<span>-AI</span></span>
+        <span class="logo-tagline">Hospital Triage System</span>
+      </div>
+      <div class="auth-heading">
+        <h2>Welcome Back</h2>
+        <p>Enter your credentials to access the system</p>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <div class="input-wrap">
+          <input type="email" id="login-email" placeholder="staff@hospital.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-wrap">
+          <input type="password" id="login-password" class="has-eye" placeholder="Enter your password">
+          <button class="eye-btn" onclick="toggleEye('login-password', this)" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="margin-top:8px" onclick="handleLogin()">Login</button>
+      <p class="auth-footer">Don't have an account? <a onclick="goTo('page-signup')">Sign-Up</a></p>
+    </div>
+  </div>
+
+  <!-- PAGE 2: SIGN-UP -->
+  <div class="page auth-page" id="page-signup">
+    <div class="auth-card">
+      <div class="logo-block">
+        <div class="logo-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 8C14 8 10 8 10 14C10 20 10 24 10 24C10 32 16.5 37 24 37C31.5 37 38 32 38 24" stroke="#1E88E5" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M14 8L16 5" stroke="#1E88E5" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M38 24C38 24 40 24 40 22C40 20 40 16 40 14C40 10 38 8 34 8" stroke="#1E88E5" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M34 8L32 5" stroke="#1E88E5" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="16" cy="5" r="2" fill="#1565C0"/>
+            <circle cx="32" cy="5" r="2" fill="#1565C0"/>
+            <circle cx="38" cy="27" r="5" fill="#1E88E5" stroke="#1565C0" stroke-width="1.5"/>
+            <path d="M38 24.5V29.5M35.5 27H40.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="logo-name">Triage<span>-AI</span></span>
+        <span class="logo-tagline">Hospital Triage System</span>
+      </div>
+      <div class="auth-heading">
+        <h2>Create Account</h2>
+        <p>Register to access the triage management system</p>
+      </div>
+      <div class="form-group">
+        <label>Full Name</label>
+        <div class="input-wrap">
+          <input type="text" id="signup-name" placeholder="Dr. Jane Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <div class="input-wrap">
+          <input type="email" id="signup-email" placeholder="staff@hospital.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-wrap">
+          <input type="password" id="signup-password" class="has-eye" placeholder="Create a strong password">
+          <button class="eye-btn" onclick="toggleEye('signup-password', this)" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Select Role</label>
+        <div class="role-options">
+          <div class="role-opt">
+            <input type="radio" name="role" id="role-nurse" value="nurse">
+            <label for="role-nurse">🩺 Nurse</label>
+          </div>
+          <div class="role-opt">
+            <input type="radio" name="role" id="role-doctor" value="doctor" checked>
+            <label for="role-doctor">👨‍⚕️ Doctor</label>
+          </div>
+          <div class="role-opt">
+            <input type="radio" name="role" id="role-admin" value="admin">
+            <label for="role-admin">🔐 Admin</label>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="margin-top:8px" onclick="handleSignup()">Register</button>
+      <p class="auth-footer">Already have an account? <a onclick="goTo('page-login')">Login</a></p>
+    </div>
+  </div>
+
+  <!-- PAGE 3: NURSE DASHBOARD -->
+  <div class="page dashboard-page" id="page-nurse">
+    <header class="dash-header">
+      <div class="dash-logo">
+        <div class="dash-logo-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 8C14 8 10 8 10 14C10 20 10 24 10 24C10 32 16.5 37 24 37C31.5 37 38 32 38 24" stroke="#1E88E5" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M14 8L16 5" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+            <path d="M38 24C38 24 40 24 40 22C40 20 40 16 40 14C40 10 38 8 34 8" stroke="#1E88E5" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M34 8L32 5" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="16" cy="5" r="2.5" fill="#1565C0"/>
+            <circle cx="32" cy="5" r="2.5" fill="#1565C0"/>
+            <circle cx="38" cy="27" r="5" fill="#1E88E5" stroke="#1565C0" stroke-width="1.5"/>
+            <path d="M38 24.5V29.5M35.5 27H40.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>Triage-AI</span>
+      </div>
+      <div class="dash-header-right">
+        <div class="user-badge">
+          <div class="user-avatar">N</div>
+          <span id="nurse-name-display">Nurse</span>
+        </div>
+        <button class="logout-btn" onclick="logout()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
+      </div>
+    </header>
+    <div class="dash-main">
+      <h1 class="page-title">Patient Triage Assessment</h1>
+      <p class="page-subtitle">Enter patient vitals for AI-powered triage assessment</p>
+      <div class="card">
+        <div class="form-section">
+          <div class="form-section-label">Patient Information</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Patient Name</label>
+              <div class="input-wrap"><input type="text" id="pt-name" placeholder="Full name"></div>
+            </div>
+            <div class="form-group">
+              <label>Age</label>
+              <div class="input-wrap"><input type="number" id="pt-age" placeholder="Years" min="0" max="150"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Symptoms</label>
+            <div class="input-wrap"><textarea id="pt-symptoms" placeholder="Describe the patient's symptoms in detail..."></textarea></div>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-label">Vital Signs</div>
+          <div class="form-row" style="margin-bottom:14px">
+            <div class="form-group" style="margin:0">
+              <label>Blood Pressure Status</label>
+              <div class="input-wrap">
+                <select id="pt-bp-status">
+                  <option value="Normal">Normal</option>
+                  <option value="Abnormal">Abnormal</option>
+                  <option value="Unknown">Unknown</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group" style="margin:0">
+              <label>BP Value</label>
+              <div class="input-wrap"><input type="text" id="pt-bp-val" placeholder="e.g. 120/80"></div>
+            </div>
+          </div>
+          <div class="vitals-grid">
+            <div class="form-group" style="margin:0">
+              <label>Temperature (°C)</label>
+              <div class="input-wrap"><input type="number" id="pt-temp" placeholder="37.0" step="0.1"></div>
+            </div>
+            <div class="form-group" style="margin:0">
+              <label>Pulse (bpm)</label>
+              <div class="input-wrap"><input type="number" id="pt-pulse" placeholder="72"></div>
+            </div>
+            <div class="form-group" style="margin:0">
+              <label>SpO2 (%)</label>
+              <div class="input-wrap"><input type="number" id="pt-spo2" placeholder="98" min="0" max="100"></div>
+            </div>
+            <div class="form-group" style="margin:0">
+              <label>Respiratory Rate</label>
+              <div class="input-wrap"><input type="number" id="pt-rr" placeholder="16 /min"></div>
+            </div>
+          </div>
+        </div>
+        <button class="submit-btn" onclick="submitTriage()">⚡ Submit &amp; Triage Patient</button>
+        <div class="triage-result" id="triage-result">
+          <div class="result-icon" id="result-icon"></div>
+          <div class="result-text">
+            <h3 id="result-title"></h3>
+            <p id="result-desc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 4: DOCTOR DASHBOARD -->
+  <div class="page dashboard-page" id="page-doctor">
+    <header class="dash-header">
+      <div class="dash-logo">
+        <div class="dash-logo-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 8C14 8 10 8 10 14C10 20 10 24 10 24C10 32 16.5 37 24 37C31.5 37 38 32 38 24" stroke="#1E88E5" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M14 8L16 5" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+            <path d="M38 24C38 24 40 24 40 22C40 20 40 16 40 14C40 10 38 8 34 8" stroke="#1E88E5" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M34 8L32 5" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="16" cy="5" r="2.5" fill="#1565C0"/>
+            <circle cx="32" cy="5" r="2.5" fill="#1565C0"/>
+            <circle cx="38" cy="27" r="5" fill="#1E88E5" stroke="#1565C0" stroke-width="1.5"/>
+            <path d="M38 24.5V29.5M35.5 27H40.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>Triage-AI</span>
+      </div>
+      <div class="dash-header-right">
+        <div class="user-badge">
+          <div class="user-avatar">D</div>
+          <span id="doctor-name-display">Doctor</span>
+        </div>
+        <button class="logout-btn" onclick="logout()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
+      </div>
+    </header>
+    <div class="dash-main">
+      <h1 class="page-title">Patient Queue</h1>
+      <p class="page-subtitle">Manage and treat patients based on triage priority</p>
+      <div class="card">
+        <div class="table-wrap">
+          <table id="doctor-table">
+            <thead>
+              <tr>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Symptoms</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="doctor-tbody"></tbody>
+          </table>
+          <div class="no-data" id="doctor-empty" style="display:none">
+            <div class="no-data-icon">🏥</div>
+            <p>No patients in queue yet. Nurse submissions will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 5: ADMIN DASHBOARD -->
+  <div class="page dashboard-page" id="page-admin">
+    <header class="dash-header">
+      <div class="dash-logo">
+        <div class="dash-logo-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 8C14 8 10 8 10 14C10 20 10 24 10 24C10 32 16.5 37 24 37C31.5 37 38 32 38 24" stroke="#1E88E5" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M14 8L16 5" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+            <path d="M38 24C38 24 40 24 40 22C40 20 40 16 40 14C40 10 38 8 34 8" stroke="#1E88E5" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M34 8L32 5" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="16" cy="5" r="2.5" fill="#1565C0"/>
+            <circle cx="32" cy="5" r="2.5" fill="#1565C0"/>
+            <circle cx="38" cy="27" r="5" fill="#1E88E5" stroke="#1565C0" stroke-width="1.5"/>
+            <path d="M38 24.5V29.5M35.5 27H40.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>Triage-AI</span>
+      </div>
+      <div class="dash-header-right">
+        <div class="user-badge">
+          <div class="user-avatar">A</div>
+          <span id="admin-name-display">Admin</span>
+        </div>
+        <button class="logout-btn" onclick="logout()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
+      </div>
+    </header>
+    <div class="dash-main">
+      <h1 class="page-title">Admin Dashboard</h1>
+      <p class="page-subtitle">Overview of today's hospital triage activity</p>
+      <div class="stats-grid" id="admin-stats"></div>
+      <div class="card">
+        <div class="card-title">Patient History</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Priority</th>
+                <th>Treatment Status</th>
+                <th>Date & Time</th>
+              </tr>
+            </thead>
+            <tbody id="admin-tbody"></tbody>
+          </table>
+          <div class="no-data" id="admin-empty" style="display:none">
+            <div class="no-data-icon">📊</div>
+            <p>No patient data recorded yet today.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
